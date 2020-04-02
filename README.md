@@ -26,3 +26,4 @@ Just use `![logo](logo.jpg)` to insert `logo.jpg`.
 # History
 
 2018-04-18: support hexo-abbrlink
+2020-04-02: support lozad.js
