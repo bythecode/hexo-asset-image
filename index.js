@@ -76,7 +76,7 @@ hexo.extend.filter.register('after_post_render', function (data) {
             var src = attrSrc.replace('\\', '/');
             if (!(/http[s]*.*|\/\/.*/.test(src)
               || /^\s+\//.test(src)
-              || /^\s*\/uploads|images\//.test(src))) {
+              || /^\s*\/uploads|images|assets\//.test(src))) {
               // For "about" page, the first part of "src" can't be removed.
               // In addition, to support multi-level local directory.
               var linkArray = link.split('/').filter(function (elem) {
