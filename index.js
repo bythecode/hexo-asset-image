@@ -1,5 +1,6 @@
 'use strict';
 var cheerio = require('cheerio');
+const ROOT_ASSETS_REG = /^\/(assets|images|uploads)\/.*/
 
 // http://stackoverflow.com/questions/14480345/how-to-get-the-nth-occurrence-in-a-string
 function getPosition(str, m, i) {
@@ -45,7 +46,7 @@ hexo.extend.filter.register('after_post_render', function (data) {
             return ;
           }
           // 简单处理assets/images/uploads开头的: /assets
-          if (/^\/(assets|images|uploads)\/.*/.test(src)){
+          if (ROOT_ASSETS_REG.test(src)){
             let newSrc = config.root.replace(/\/+$/, "") + src;
             $this.attr('href', newSrc);
             console.info && console.info("update global assets as:-->" + newSrc);
@@ -74,9 +75,12 @@ hexo.extend.filter.register('after_post_render', function (data) {
           if (attrSrc) {
             // For windows style path, we replace '\' to '/'.
             var src = attrSrc.replace('\\', '/');
-            if (!(/http[s]*.*|\/\/.*/.test(src)
-              || /^\s+\//.test(src)
-              || /^\s*\/uploads|images|assets\//.test(src))) {
+            // 优先处理全局资源
+            if(ROOT_ASSETS_REG.test(src)){
+              let newSrc = config.root.replace(/\/+$/, "") + src;
+              $this.attr($this.attr('src')? 'src':'data-src', newSrc);
+              console.info && console.info("update global assets[images] as:-->" + newSrc);
+            }else if (!(/http[s]*.*|\/\/.*/.test(src) || /^\s+\//.test(src))) {
               // For "about" page, the first part of "src" can't be removed.
               // In addition, to support multi-level local directory.
               var linkArray = link.split('/').filter(function (elem) {
@@ -88,12 +92,7 @@ hexo.extend.filter.register('after_post_render', function (data) {
               if (srcArray.length > 1)
                 srcArray.shift();
               src = srcArray.join('/');
-
-              if ($this.attr('src')) {
-                $this.attr('src', link + src);
-              } else {
-                $this.attr('data-src', link + src);
-              }
+              $this.attr($this.attr('src')? 'src':'data-src', link + src);
               console.info && console.info("update link as:-->" + link + src);
             }
           } else {

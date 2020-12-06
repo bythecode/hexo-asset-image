@@ -1,6 +1,6 @@
 {
   "name": "hexo-asset-file",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Give asset image or file in hexo a absolutely or relavtive path automatically | 自动处理图片或附件",
   "main": "index.js",
   "scripts": {
