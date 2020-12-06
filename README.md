@@ -1,4 +1,10 @@
 # hexo-asset-file
+<p align="center">
+  <a href="https://npmcharts.com/compare/vue?minimal=true"><img src="https://img.shields.io/npm/dm/hexo-asset-file.svg?sanitize=true" alt="Downloads"></a>
+  <a href="https://www.npmjs.com/package/hexo-asset-file"><img src="https://img.shields.io/npm/v/hexo-asset-file.svg?sanitize=true" alt="Version"></a>
+  <a href="https://www.npmjs.com/package/hexo-asset-file"><img src="https://img.shields.io/npm/l/hexo-asset-file.svg?sanitize=true" alt="License"></a>
+</p>
+
 
 # Usege
 
