@@ -1,7 +1,7 @@
 {
-  "name": "hexo-asset-image",
-  "version": "0.0.5",
-  "description": "Give asset image in hexo a absolutely path automatically",
+  "name": "hexo-asset-file",
+  "version": "1.0.3",
+  "description": "Give asset image or file in hexo a absolutely or relavtive path automatically | 自动处理图片或附件",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -10,12 +10,21 @@
     "hexo",
     "iamge",
     "asset",
-    "path"
+    "path",
+    "file",
+    "hexo 附件",
+    "hexo 图片",
+    "hexo 文件"
   ],
-  "author": "xcodebuild",
+  "author": "qingshan-dev",
   "license": "MIT",
   "dependencies": {
     "cheerio": "^0.19.0",
     "entities": "^1.1.2"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/qingshan-dev/hexo-asset-image.git"
+  },
+  "homepage": "https://github.com/qingshan-dev/hexo-asset-image#hexo-asset-file"
 }
